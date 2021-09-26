@@ -23,9 +23,6 @@ export const NoteInput: React.FC<INewNoteInputProps> = ({ addNote }) => {
                 <button onClick={onAddNoteClick}>Add Note</button>
             </div>
             <hr />
-            <ul>
-                <li>Some Note</li>
-            </ul>
         </>
     )
 }
