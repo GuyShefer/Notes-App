@@ -1,4 +1,5 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { FormEvent, useState } from 'react';
+import { InputContainer, TextArea, Button } from './StyledNoteInput';
 
 interface INewNoteInputProps {
     addNote(note: string): void;
@@ -7,8 +8,8 @@ interface INewNoteInputProps {
 export const NoteInput: React.FC<INewNoteInputProps> = ({ addNote }) => {
     const [note, setNote] = useState("");
 
-    const updateNote = (e: ChangeEvent<HTMLInputElement>) => {
-        setNote(e.target.value);
+    const updateNote = (e: FormEvent<HTMLTextAreaElement>) => {
+        setNote(e.currentTarget.value);
     }
 
     const onAddNoteClick = () => {
@@ -17,12 +18,9 @@ export const NoteInput: React.FC<INewNoteInputProps> = ({ addNote }) => {
     }
 
     return (
-        <>
-            <div>
-                <input onChange={updateNote} value={note} type="text" name="note" placeholder="Note" />
-                <button onClick={onAddNoteClick}>Add Note</button>
-            </div>
-            <hr />
-        </>
+        <InputContainer>
+            <TextArea onChange={updateNote} value={note} name="note" placeholder="Note..." rows={4} cols={50} />
+            <Button onClick={onAddNoteClick}>Add Note</Button>
+        </InputContainer>
     )
 }

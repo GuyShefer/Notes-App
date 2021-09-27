@@ -4,16 +4,8 @@ import { NoteInput } from './components/note-input/NoteInput.component';
 import { NotesList } from './components/notes-list/NotesList.component';
 import { addNote } from './redux/notesActions';
 
-import GlobalStyle from './styles/global'
-
-// import styled from 'styled-components';
-
-// const Root = styled.div`
-//   padding: 0;
-//   margin: 0;
-//   box-sizing: border-box;
-//   background: gray;
-// `;
+import GlobalStyle from './styles/global';
+import { Title, HR } from './styles/StyledApp';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -25,7 +17,9 @@ const App = () => {
   return (
     <div>
       <GlobalStyle />
+      <Title>Notes App</Title>
       <NoteInput addNote={handleAddNote} />
+      <HR />
       <NotesList />
     </div>
   );
